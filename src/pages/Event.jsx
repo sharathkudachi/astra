@@ -164,7 +164,7 @@ const Event = () => {
       {/* Evaluation Panel */}
       <section className="mb-20">
         <h2 className="text-2xl font-orbitron mb-12 text-center underline underline-offset-8 decoration-accent-orange">EVALUATION PANEL</h2>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {evaluators.map((org, idx) => (
             <div key={idx} className="bg-bg-elevated border border-custom-border p-8 text-center border-b-2 border-b-accent-orange">
               <span className="text-4xl font-orbitron text-text-primary block mb-2">{org.acronym}</span>

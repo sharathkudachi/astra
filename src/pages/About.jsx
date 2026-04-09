@@ -1,8 +1,17 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { GiShield, GiDeliveryDrone, GiRobotLeg, GiSecurityGate, GiBrain } from 'react-icons/gi';
 
 const About = () => {
+  const [imgIndex, setImgIndex] = useState(0);
+  const images = ['/bmsit.jpg', '/bmsit1.jpg', '/bmsit2.jpg'];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setImgIndex(i => (i + 1) % images.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -52,10 +61,30 @@ const About = () => {
             <div className="absolute -inset-4 border border-accent-orange/20 group-hover:border-accent-orange/40 transition-colors pointer-events-none" />
             <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-accent-orange" />
             <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-accent-orange" />
-            <div className="bg-bg-surface border border-custom-border p-12 aspect-video flex flex-col items-center justify-center text-center">
-               <GiShield className="text-8xl text-accent-orange/20 mb-6" />
-               <span className="font-orbitron text-xl text-text-primary">BMSIT&M HQ</span>
-               <span className="font-rajdhani text-text-muted uppercase tracking-badge mt-2">ESTD. 2002 · BENGALURU</span>
+            <div className="bg-bg-surface border border-custom-border aspect-video overflow-hidden relative">
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={imgIndex}
+                  src={images[imgIndex]}
+                  alt="BMSIT Campus"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.8 }}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </AnimatePresence>
+              {/* Dot indicators */}
+              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex space-x-2">
+                {images.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setImgIndex(i)}
+                    className={`w-2 h-2 rounded-full transition-all ${i === imgIndex ? 'bg-accent-orange w-4' : 'bg-text-muted/50'}`}
+                  />
+                ))}
+              </div>
             </div>
           </motion.div>
         </div>

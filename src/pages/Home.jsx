@@ -35,7 +35,7 @@ const Home = () => {
   };
 
   const stats = [
-    { value: "₹30,000+", label: "Prize Pool" },
+    { value: "₹50,000+", label: "Prize Pool" },
     { value: "50", label: "Selected Teams" },
     { value: "4", label: "Evaluation Orgs" },
     { value: "30 APR", label: "2026" }
@@ -69,14 +69,14 @@ const Home = () => {
 
         <motion.h1 
           variants={itemVariants} 
-          className="text-5xl md:text-8xl font-orbitron font-black text-text-primary tracking-tactical mb-2 leading-none"
+          className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-orbitron font-black text-text-primary tracking-tactical mb-2 leading-none"
         >
           DEFENCE TECHNOLOGY
         </motion.h1>
 
         <motion.h2 
           variants={itemVariants} 
-          className="text-6xl md:text-9xl font-orbitron font-black text-accent-orange mb-8 tracking-tighter"
+          className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-orbitron font-black text-accent-orange mb-8 tracking-tighter"
         >
           EXPO 2026
         </motion.h2>
@@ -92,13 +92,20 @@ const Home = () => {
           <CountdownTimer />
         </motion.div>
 
-        <motion.div variants={itemVariants} className="flex flex-col md:row items-center space-y-4 md:space-y-0 md:space-x-6">
+        <motion.div variants={itemVariants} className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-6">
           <Link 
             to="/register" 
             className="px-10 py-4 bg-accent-orange text-bg-base font-orbitron font-bold tracking-tactical uppercase hover:scale-105 transition-transform animate-glow-pulse"
           >
             Register on Unstop
           </Link>
+          <a
+            href="/Defense Tech Expo Club Brochure.pdf"
+            download="Defense Tech Expo Club Brochure.pdf"
+            className="px-10 py-4 border border-accent-orange text-accent-orange font-orbitron font-bold tracking-tactical uppercase hover:bg-accent-orange hover:text-bg-base transition-all"
+          >
+            Download Brochure
+          </a>
           <Link 
             to="/event" 
             className="px-10 py-4 border border-text-primary text-text-primary font-orbitron font-bold tracking-tactical uppercase hover:bg-text-primary hover:text-bg-base transition-all"
@@ -129,8 +136,8 @@ const Home = () => {
 
       {/* Domain Preview */}
       <section className="py-24 container mx-auto px-6">
-        <div className="flex flex-col md:row items-end justify-between mb-16 space-y-4 md:space-y-0">
-          <div className="text-left">
+        <div className="flex flex-col items-center justify-center text-center mb-16 space-y-4">
+          <div>
             <span className="label-badge text-accent-orange">Strategy</span>
             <h2 className="text-4xl font-orbitron mt-2">COMPETITION DOMAINS</h2>
           </div>
@@ -162,12 +169,12 @@ const Home = () => {
 
       {/* Chief Guest Teaser */}
       <section className="bg-bg-elevated py-24 relative overflow-hidden">
-        <div className="container mx-auto px-6 flex flex-col lg:row items-center gap-16">
-          <div className="lg:w-1/2">
+        <div className="container mx-auto px-6 flex flex-col lg:flex-row items-center gap-16">
+          <div className="w-full lg:w-1/2">
             <span className="label-badge text-accent-amber px-3 py-1 border border-accent-amber/30 mb-6 inline-block">
               Chief Guest
             </span>
-            <h2 className="text-4xl md:text-5xl font-orbitron mb-6">Brigadier B. M. Cariappa (Retd.)</h2>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-orbitron mb-6">Brigadier B. M. Cariappa (Retd.)</h2>
             <p className="text-text-muted text-lg mb-8 leading-relaxed font-inter">
               Kargil War Veteran and Vir Chakra Awardee. A decorated officer known for exceptional courage and strategic leadership.
             </p>
@@ -177,19 +184,19 @@ const Home = () => {
             </div>
             <Link 
               to="/guests" 
-              className="px-8 py-3 border border-accent-orange text-accent-orange font-rajdhani uppercase tracking-badge hover:bg-accent-orange hover:text-bg-base transition-all inline-flex items-center"
+              className="px-8 py-3 border border-accent-orange text-accent-orange font-rajdhani uppercase tracking-badge hover:bg-accent-orange hover:text-bg-base transition-all inline-flex items-center min-h-[44px]"
             >
               View Chief Guests <HiArrowRight className="ml-2" />
             </Link>
           </div>
-          <div className="lg:w-1/2 w-full aspect-square md:aspect-video lg:aspect-square relative">
+          <div className="w-full lg:w-1/2 aspect-video relative">
             <div className="absolute inset-0 border-2 border-accent-orange/30 m-4" />
             <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-accent-orange" />
             <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-accent-orange" />
             <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-accent-orange" />
             <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-accent-orange" />
             <div className="w-full h-full bg-black flex items-center justify-center border border-custom-border overflow-hidden">
-               <img src="/guest 1.png" alt="Brigadier Cariappa" className="w-full h-full object-contain" />
+               <img src="/guest 1.png" alt="Brigadier Cariappa" className="w-full h-full object-contain" loading="lazy" />
             </div>
           </div>
         </div>
@@ -203,23 +210,23 @@ const Home = () => {
           <div className="h-1 w-24 bg-accent-orange mx-auto mb-8" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-16 items-end">
           <div className="bg-bg-surface border border-custom-border p-10 text-center relative pt-20">
              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 border border-accent-amber bg-bg-base flex items-center justify-center font-orbitron text-4xl text-accent-amber">2</div>
              <h3 className="text-2xl font-rajdhani mb-2">SILVER</h3>
-             <span className="text-3xl font-orbitron text-text-primary block mb-4">₹10,000</span>
+             <span className="text-3xl font-orbitron text-text-primary block mb-4">₹15,000</span>
              <p className="text-text-muted text-sm">Runner Up Prize</p>
           </div>
-          <div className="bg-bg-elevated border-2 border-accent-orange p-12 text-center relative pt-24 scale-110 z-10">
+          <div className="bg-bg-elevated border-2 border-accent-orange p-12 text-center relative pt-24 md:scale-110 md:z-10">
              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 border-2 border-accent-orange bg-bg-base flex items-center justify-center font-orbitron text-5xl text-accent-orange animate-glow-pulse">1</div>
              <h3 className="text-3xl font-rajdhani mb-2">GOLD</h3>
-             <span className="text-4xl font-orbitron text-text-primary block mb-4">₹15,000</span>
+             <span className="text-4xl font-orbitron text-text-primary block mb-4">₹25,000</span>
              <p className="text-text-muted text-sm uppercase tracking-widest font-bold">Grand Champion</p>
           </div>
           <div className="bg-bg-surface border border-custom-border p-10 text-center relative pt-20">
              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 border border-accent-amber/50 bg-bg-base flex items-center justify-center font-orbitron text-4xl text-accent-amber/50">3</div>
              <h3 className="text-2xl font-rajdhani mb-2">BRONZE</h3>
-             <span className="text-3xl font-orbitron text-text-primary block mb-4">₹5,000</span>
+             <span className="text-3xl font-orbitron text-text-primary block mb-4">₹10,000</span>
              <p className="text-text-muted text-sm">Third Place Award</p>
           </div>
         </div>

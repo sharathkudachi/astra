@@ -45,7 +45,7 @@ const Footer = () => {
 
         {/* Col 3: Contact */}
         <div>
-          <h4 className="text-text-primary uppercase tracking-badge text-sm mb-6 border-l-2 border-accent-orange pl-3">Contact HQ</h4>
+          <h4 className="text-text-primary uppercase tracking-badge text-sm mb-6 border-l-2 border-accent-orange pl-3">CONTACT</h4>
           <div className="space-y-4">
             <div className="flex items-start space-x-3 group">
               <HiMail className="text-accent-orange text-xl mt-1 group-hover:scale-110 transition-transform" />
@@ -57,7 +57,7 @@ const Footer = () => {
             <div className="flex items-start space-x-3 group">
               <HiLocationMarker className="text-accent-orange text-xl mt-1 group-hover:scale-110 transition-transform" />
               <div>
-                <span className="block text-xs uppercase tracking-badge text-text-muted mb-1">Observation Post</span>
+                <span className="block text-xs uppercase tracking-badge text-text-muted mb-1">EVENT LOCATION</span>
                 <p className="text-text-primary text-sm font-inter">
                   BMSIT, Yelahanka, Bengaluru – 560064, Karnataka, India
                 </p>

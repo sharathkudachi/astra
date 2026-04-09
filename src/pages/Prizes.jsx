@@ -7,7 +7,7 @@ const Prizes = () => {
     {
       rank: "2nd",
       title: "Silver Excellence",
-      amount: "₹10,000",
+      amount: "₹15,000",
       description: "Awarded to the team showcasing exceptional innovation and technical feasibility.",
       icon: <GiMedal className="text-6xl text-accent-amber opacity-60" />,
       style: "border-custom-border bg-bg-surface order-2"
@@ -15,7 +15,7 @@ const Prizes = () => {
     {
       rank: "1st",
       title: "Gold Vanguard",
-      amount: "₹15,000",
+      amount: "₹25,000",
       description: "The grand champion award for the most revolutionary defence technology solution.",
       icon: <GiTrophy className="text-8xl text-accent-orange" />,
       style: "border-accent-orange bg-bg-elevated order-1 lg:scale-110 lg:z-10 shadow-[0_0_30px_rgba(255,107,0,0.1)]",
@@ -24,7 +24,7 @@ const Prizes = () => {
     {
       rank: "3rd",
       title: "Bronze Honor",
-      amount: "₹5,000",
+      amount: "₹10,000",
       description: "Recognizing outstanding prototype development and presentation skills.",
       icon: <GiLaurels className="text-6xl text-accent-amber opacity-40" />,
       style: "border-custom-border bg-bg-surface order-3"
@@ -44,7 +44,7 @@ const Prizes = () => {
         
         <div className="bg-bg-elevated border border-accent-orange/30 inline-flex flex-col md:flex-row items-center p-2">
             <div className="px-10 py-4 bg-accent-orange text-bg-base font-orbitron text-2xl font-bold tracking-widest">
-              ₹30,000
+              ₹50,000
             </div>
             <div className="px-10 py-4 font-rajdhani text-xl text-text-primary tracking-[0.2em] uppercase">
               TOTAL PRIZE POOL
@@ -52,12 +52,12 @@ const Prizes = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-0 items-center max-w-6xl mx-auto mb-32">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center max-w-6xl mx-auto mb-32 px-4">
         {prizeCards.map((prize, idx) => (
           <motion.div
             key={idx}
             whileHover={{ y: -10 }}
-            className={`relative p-12 border-2 text-center h-full flex flex-col items-center justify-center transition-all duration-300 ${prize.style}`}
+            className={`relative p-8 md:p-12 border-2 text-center h-full flex flex-col items-center justify-center transition-all duration-300 ${prize.style.replace('lg:scale-110', '')} ${prize.isGrand ? 'lg:scale-105 lg:z-10' : ''}`}
           >
             <div className="mb-8 relative">
                {prize.icon}

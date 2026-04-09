@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { HiMail, HiLocationMarker, HiCalendar } from 'react-icons/hi';
+import { HiMail, HiLocationMarker, HiCalendar, HiExternalLink } from 'react-icons/hi';
 import { FaInstagram, FaLinkedin, FaXTwitter } from 'react-icons/fa6';
 
 const Contact = () => {
+  const [mapType, setMapType] = useState('roadmap');
   const contactInfo = [
     {
       icon: <HiMail className="text-3xl text-accent-orange" />,
@@ -13,20 +14,20 @@ const Contact = () => {
     },
     {
       icon: <HiLocationMarker className="text-3xl text-accent-orange" />,
-      label: "Observation Post",
+      label: "Event Location",
       value: "BMS Institute of Technology and Management, Yelahanka New Town, Bengaluru – 560064, Karnataka",
       link: "https://maps.google.com/?q=BMS+Institute+of+Technology+and+Management"
     },
     {
       icon: <HiCalendar className="text-3xl text-accent-orange" />,
-      label: "Operation Date",
+      label: "Event Date",
       value: "30 April 2026",
     }
   ];
 
   const socials = [
-    { icon: <FaInstagram />, label: "Instagram", href: "#" },
-    { icon: <FaLinkedin />, label: "LinkedIn", href: "#" },
+    { icon: <FaInstagram />, label: "Instagram", href: "https://www.instagram.com/astra.club.bmsit?igsh=MXI5dm44Nmc1cm90MQ==" },
+    { icon: <FaLinkedin />, label: "LinkedIn", href: "https://www.linkedin.com/company/astra-club-bmsit/" },
     { icon: <FaXTwitter />, label: "Twitter", href: "#" },
   ];
 
@@ -39,7 +40,7 @@ const Contact = () => {
     >
       <div className="text-center mb-16">
         <span className="label-badge text-accent-orange mb-4 block">Communication Channels</span>
-        <h1 className="text-4xl md:text-5xl font-orbitron mb-8 tracking-widest">CONTACT HQ</h1>
+        <h1 className="text-4xl md:text-5xl font-orbitron mb-8 tracking-widest">CONTACT </h1>
         <div className="h-1 w-24 bg-accent-orange mx-auto" />
       </div>
 
@@ -83,28 +84,97 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* Right Column - Map Placeholder */}
+        {/* Right Column - Navigation Hub */}
         <div className="relative group lg:sticky lg:top-32">
-          <div className="absolute -inset-4 border border-accent-orange/20 pointer-events-none group-hover:border-accent-orange/40 transition-colors" />
-          <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-accent-orange" />
-          <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-accent-orange" />
-          
-          <div className="bg-bg-surface border border-custom-border aspect-square w-full overflow-hidden relative">
-             <div className="w-full h-full bg-bg-elevated flex flex-col items-center justify-center text-center p-12">
-                <HiLocationMarker className="text-7xl text-accent-orange/20 mb-6" />
-                <h3 className="font-orbitron text-xl text-text-primary mb-4">MAP COORDINATES</h3>
-                <p className="text-text-muted text-sm font-inter">
-                   BMS Institute of Technology and Management<br />
-                   Yelahanka New Town, Bengaluru
-                </p>
-                <div className="mt-8 px-6 py-2 border border-accent-orange/30 text-accent-orange text-[10px] font-rajdhani uppercase tracking-badge">
-                   Static Iframe Placeholder
-                </div>
-             </div>
-             
-             {/* Visual Overlay */}
-             <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,transparent_0%,rgba(10,10,10,0.5)_100%)]" />
+
+          {/* Radial glow background */}
+          <div className="absolute inset-0 pointer-events-none rounded-sm overflow-hidden">
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,106,0,0.08)_0%,transparent_70%)] animate-pulse" />
+            <div className="absolute inset-0 opacity-5"
+              style={{ backgroundImage: 'linear-gradient(rgba(255,106,0,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,106,0,0.3) 1px, transparent 1px)', backgroundSize: '32px 32px' }}
+            />
           </div>
+
+          {/* Corner accents */}
+          <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-accent-orange z-10" />
+          <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-accent-orange z-10" />
+          <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-accent-orange z-10" />
+          <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-accent-orange z-10" />
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="bg-bg-surface border border-accent-orange/30 overflow-hidden"
+          >
+            {/* Header */}
+            <div className="px-6 pt-6 pb-4 border-b border-custom-border flex items-center justify-between">
+              <div>
+                <span className="label-badge text-accent-orange text-xs block mb-1">Navigation Hub</span>
+                <h3 className="font-orbitron text-lg text-text-primary tracking-widest">TARGET COORDINATES</h3>
+              </div>
+              {/* Map / Satellite toggle */}
+              <div className="flex border border-custom-border overflow-hidden text-xs font-rajdhani uppercase tracking-badge">
+                <button
+                  onClick={() => setMapType('roadmap')}
+                  className={`px-3 py-1.5 transition-colors ${mapType === 'roadmap' ? 'bg-accent-orange text-bg-base' : 'text-text-muted hover:text-text-primary'}`}
+                >Map</button>
+                <button
+                  onClick={() => setMapType('satellite')}
+                  className={`px-3 py-1.5 transition-colors ${mapType === 'satellite' ? 'bg-accent-orange text-bg-base' : 'text-text-muted hover:text-text-primary'}`}
+                >Satellite</button>
+              </div>
+            </div>
+
+            {/* Pulsing pin + coordinates */}
+            <div className="flex items-center justify-between px-6 py-4 bg-bg-elevated border-b border-custom-border">
+              <div className="flex items-center space-x-3">
+                {/* Radar pulse */}
+                <div className="relative w-8 h-8 flex items-center justify-center">
+                  <span className="absolute inline-flex w-full h-full rounded-full bg-accent-orange opacity-20 animate-ping" />
+                  <HiLocationMarker className="text-accent-orange text-xl relative z-10" />
+                </div>
+                <span className="font-orbitron text-sm text-accent-orange tracking-widest">
+                  13.1341° N &nbsp;|&nbsp; 77.5694° E
+                </span>
+              </div>
+              <a
+                href="https://maps.app.goo.gl/358pK1GGfQsexKAw5"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-2 px-4 py-2 border border-accent-orange text-accent-orange font-rajdhani text-xs uppercase tracking-badge hover:bg-accent-orange hover:text-bg-base transition-all hover:shadow-[0_0_12px_rgba(255,106,0,0.5)]"
+              >
+                <span>Get Directions</span>
+                <HiExternalLink />
+              </a>
+            </div>
+
+            {/* Live Map iframe */}
+            <motion.div
+              whileHover={{ scale: 1.01 }}
+              transition={{ duration: 0.3 }}
+              className="relative w-full h-96 overflow-hidden"
+            >
+              <iframe
+                title="BMSIT Location"
+                src={`https://www.google.com/maps?q=13.13418757546676,77.56943486545431&z=16&output=embed&t=${mapType === 'satellite' ? 'k' : 'm'}`}
+                width="100%"
+                height="100%"
+                style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) saturate(0.8)' }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+              <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,transparent_60%,rgba(10,10,10,0.6)_100%)]" />
+            </motion.div>
+
+            {/* Address footer */}
+            <div className="px-6 py-4 border-t border-custom-border bg-bg-elevated">
+              <p className="text-text-muted text-xs font-inter leading-relaxed">
+                BMS Institute of Technology and Management, Yelahanka New Town, Bengaluru – 560064, Karnataka
+              </p>
+            </div>
+          </motion.div>
         </div>
       </div>
     </motion.div>

@@ -31,7 +31,7 @@ const Guests = () => {
               <div className="absolute top-8 left-8 w-12 h-12 border-t-2 border-l-2 border-accent-orange" />
               <div className="absolute bottom-8 right-8 w-12 h-12 border-b-2 border-r-2 border-accent-orange" />
               <div className="w-full h-full border border-custom-border flex items-center justify-center bg-black">
-                 <img src="/guest 1.png" alt="Brigadier Cariappa" className="w-full h-full object-contain" />
+                 <img src="/guest 1.png" alt="Brigadier Cariappa" className="w-full h-full object-contain" loading="lazy" />
               </div>
             </div>
 
@@ -73,7 +73,7 @@ const Guests = () => {
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-0 border border-custom-border bg-bg-surface">
             <div className="lg:col-span-2 relative aspect-[4/3] lg:aspect-square overflow-hidden bg-bg-elevated p-12">
                <div className="w-full h-full border border-custom-border flex items-center justify-center bg-black">
-                 <img src="/guest 2.png" alt="Group Captain Shubhanshu Shukla" className="w-full h-full object-contain" />
+                 <img src="/guest 2.png" alt="Group Captain Shubhanshu Shukla" className="w-full h-full object-contain" loading="lazy" />
               </div>
             </div>
 

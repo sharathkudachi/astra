@@ -28,9 +28,9 @@ const Schedule = () => {
         </div>
       </div>
 
-      <div className="max-w-4xl mx-auto relative group">
-        {/* Vertical line connecting dots */}
-        <div className="absolute left-[34px] md:left-1/2 md:-ml-[1px] top-0 bottom-0 w-[2px] bg-custom-border" />
+      <div className="max-w-4xl mx-auto relative">
+        {/* Vertical line */}
+        <div className="absolute left-[34px] md:left-1/2 md:-translate-x-px top-0 bottom-0 w-[2px] bg-custom-border" />
 
         <div className="space-y-12">
           {timeline.map((item, idx) => (
